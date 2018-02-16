@@ -1,7 +1,29 @@
 #include <stdio.h>
 #include <dirent.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 
-void do_ls(char dirname[])
+void fileInfo(char dirname[])
+{
+	struct stat infobuf;
+	struct timespec timebuf;
+	
+	if (stat(dirname, &infobuf) == -1)
+		perror(dirname);
+	else
+	{
+		
+		printf("   mode: %o\n", infobuf.st_mode);
+		printf("  links: %ld\n", infobuf.st_nlink);
+		printf("   user: %d\n", infobuf.st_uid);
+		printf("  group: %d\n", infobuf.st_gid);
+		printf("   size: %ld\n", infobuf.st_size);
+		printf("modtime: %ld\n", infobuf->st_mtim);
+		printf("   name: %s\n", dirname);
+	}
+}
+
+void printList(char dirname[])
 {
 	DIR *dir_ptr; //the directory
 	struct dirent * direntp; //each entry
@@ -23,12 +45,12 @@ int main(int argc, char *argv[]){
 	}
 
 	if (argc == 1)
-		do_ls(".");
+		printList(".");
 	else
 		while (--argc)
 		{
 			printf("%s:\n", *++argv);
-			do_ls(*argv);
+			printList(*argv);
 		}
 }
 
