@@ -1,3 +1,9 @@
+/*
+	Jordan Judt
+	CSC 492
+	2-16-2018
+*/
+
 #include <stdio.h>
 #include <dirent.h>
 #include <sys/stat.h>
@@ -21,9 +27,9 @@ void printFileInfo(char dirname[])
 	{
 		printf("%o ", infobuf.st_mode);
 		printf("%ld ", infobuf.st_nlink);
-		printf("%d ", infobuf.st_uid);
-		printf("%d ", infobuf.st_gid);
-		printf("%ld ", infobuf.st_size);
+		printf("%4d ", infobuf.st_uid);
+		printf("%4d ", infobuf.st_gid);
+		printf("%4ld ", infobuf.st_size);
 		printTime(infobuf.st_mtim.tv_sec);
 	}
 }
