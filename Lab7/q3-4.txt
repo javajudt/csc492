@@ -1,0 +1,76 @@
+# Jordan Judt
+# CSC 492
+# 
+# Lab 7, Questions 3-4
+# 3-16-2018
+
+***Q3***
+
+echo *** error ***
+> Each set of 3 astrisks lists the files in the current directory, and error is printed in the middle. Example:
+hello.sh error hello.sh
+
+$ echo 'Is 5 * 4 > 18 ?'
+> Is 5 * 4 > 18 ?
+
+$ echo $x
+> Lists files in the current directory. Example:
+hello.sh
+
+$ echo What is your name?
+> What is your name?
+
+$ echo $y
+> ?
+
+$ echo Would you like to play a game?
+> Would you like to play a game?
+
+$ echo "$y"
+> ?
+
+$ echo \*\*\*
+> ***
+
+
+***Q4***
+
+$ echo $z | wc -l
+> 1
+
+$ echo \$$symbol
+> $>
+
+$ echo "$z" | wc -l
+> 3
+
+$ echo $\$symbol
+> $$symbol
+
+$ echo '$z' | wc -l
+> 1
+
+$ echo "\"
+> unexpected EOF while looking for matching `"'
+  syntax error: unexpected end of file
+
+$ echo _$now_
+> _
+
+$ echo "\\"
+> \
+
+$ echo hello $symbol out
+> hello > out
+
+$ echo \\
+> \
+
+$ echo "\""
+> "
+
+$ echo I don't understand
+> unexpected EOF while looking for matching `''
+  syntax error: unexpected end of file
+  
+  
